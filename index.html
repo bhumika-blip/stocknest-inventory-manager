@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StockNest - a simple product inventory manager">
+    <title>StockNest | Product Inventory Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="#" aria-label="StockNest home">
+            <span class="brand-mark">S.</span>
+            <span>stocknest<span class="brand-dot">.</span></span>
+        </a>
+        <span class="course-label">INVENTORY WORKSPACE</span>
+    </header>
+
+    <main class="page">
+        <section class="intro">
+            <p class="eyebrow">YOUR STOCK, IN ONE PLACE</p>
+            <h1>Small details.<br><span>Big picture.</span></h1>
+            <p class="intro-copy">A calmer way to keep track of the things you have.</p>
+        </section>
+
+        <section class="summary" aria-label="Inventory summary">
+            <article class="summary-card">
+                <span class="summary-label">TOTAL PRODUCTS</span>
+                <strong id="product-count">0</strong>
+                <span class="summary-note">Different items listed</span>
+            </article>
+            <article class="summary-card value-card">
+                <span class="summary-label">INVENTORY VALUE</span>
+                <strong id="inventory-value">₹0.00</strong>
+                <span class="summary-note">Price × quantity</span>
+            </article>
+        </section>
+
+        <section class="workspace">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">THE COLLECTION</p>
+                    <h2>Your products</h2>
+                </div>
+                <label class="search-box">
+                    <span aria-hidden="true">⌕</span>
+                    <input id="search-input" type="search"
+                        placeholder="Search products..." aria-label="Search products">
+                </label>
+            </div>
+
+            <div class="inventory-layout">
+                <section class="product-panel" aria-label="Product list">
+                    <div class="list-heading">
+                        <span>PRODUCT DETAILS</span>
+                        <span>STOCK STATUS</span>
+                    </div>
+                    <div id="product-list" aria-live="polite"></div>
+                    <p id="empty-message" class="empty-message" hidden>
+                        No products found. Try another search.
+                    </p>
+                </section>
+
+                <aside class="add-panel">
+                    <p class="eyebrow">ADD TO YOUR COLLECTION</p>
+                    <h2>New product<span class="brand-dot">.</span></h2>
+                    <p class="form-intro">Add an item to keep your inventory up to date.</p>
+
+                    <form id="product-form">
+                        <label for="product-name">Product name</label>
+                        <input id="product-name" name="productName"
+                            type="text" placeholder="e.g. Canvas Tote Bag" required maxlength="60">
+
+                        <label for="product-price">Price (₹)</label>
+                        <input id="product-price" name="price"
+                            type="number" min="0.01" step="0.01" placeholder="499.00" required>
+
+                        <label for="product-quantity">Quantity</label>
+                        <input id="product-quantity" name="quantity"
+                            type="number" min="0" step="1" placeholder="10" required>
+
+                        <label for="product-category">Category</label>
+                        <select id="product-category" name="category" required>
+                            <option value="" disabled selected>Select a category</option>
+                            <option>Accessories</option>
+                            <option>Electronics</option>
+                            <option>Stationery</option>
+                            <option>Home & Living</option>
+                            <option>Other</option>
+                        </select>
+
+                        <button class="add-button" type="submit">
+                            <span>+</span> Add product
+                        </button>
+                    </form>
+                    <p id="form-message" class="form-message" role="status"></p>
+                </aside>
+            </div>
+        </section>
+
+        <footer>
+            <span>stocknest<span class="brand-dot">.</span></span>
+            <span>Thoughtfully organised, one item at a time.</span>
+        </footer>
+    </main>
+</body>
+</html>
